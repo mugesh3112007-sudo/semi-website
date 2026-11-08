@@ -37,7 +37,7 @@ function hideBoot() {
 }
 
 try {
-  if (!reducedMotion && canvas && !state.forceLowPower) {
+  if (!reducedMotion && canvas) {
     chipScene = createChipScene(canvas, quality);
     fallback?.classList.remove('is-visible');
     chipScene.resize();
