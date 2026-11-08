@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#070b11" />
+    <meta name="description" content="Silicon / 001 — an interactive procedural semiconductor die showcase." />
+    <title>Silicon / 001 — Die Scan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="boot-screen" id="boot-screen" aria-hidden="true"><span>INITIALIZING DIE SCAN</span><i></i></div>
+    <div class="grain" aria-hidden="true"></div>
+    <canvas id="chip-canvas" aria-hidden="true"></canvas>
+
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Silicon 001 home">
+        <span class="brand-mark">S<span>∿</span></span>
+        <span><strong>SILICON / 001</strong><small>PROCEDURAL DIE STUDY</small></span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation"><span></span><span></span><span></span><b>MENU</b></button>
+      <nav id="primary-navigation" class="primary-nav" aria-label="Primary navigation">
+        <a href="#overview">Overview</a>
+        <a href="#architecture">Architecture</a>
+        <a href="#signals">Signals</a>
+        <a href="#contact">Uplink</a>
+      </nav>
+      <div class="header-status"><span class="status-light"></span><span>LIVE INSPECTION</span><em>REV. 01</em></div>
+    </header>
+
+    <main id="top">
+      <section id="overview" class="hero section-shell" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="kicker"><span class="pulse-dot"></span> Semiconductor visual system</p>
+          <h1 id="hero-title">A closer look<br />at <em>what computes.</em></h1>
+          <p class="hero-lede">A small, procedural study of silicon, routing, and signal flow. Rotate the die. Inspect the architecture. Follow the light.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#architecture">Inspect the die <span>↓</span></a>
+            <button class="button button-ghost" id="reset-view" type="button">Reset view <span>↺</span></button>
+          </div>
+          <div class="hero-readout" aria-label="Die readout">
+            <div><span>NODE</span><strong>7 nm</strong></div>
+            <div><span>LAYERS</span><strong>09</strong></div>
+            <div><span>STATE</span><strong class="green">ACTIVE</strong></div>
+          </div>
+        </div>
+        <div class="hero-stage" aria-label="Interactive 3D semiconductor die. Use pointer or touch to rotate.">
+          <div class="stage-corner stage-corner-top"><span>SCAN / 001</span><span>XY: <b id="pointer-readout">00 / 00</b></span></div>
+          <div class="chip-fallback" aria-hidden="true"><div class="fallback-die"><i></i><i></i><i></i><i></i><b>Si</b></div><span class="fallback-trace trace-a"></span><span class="fallback-trace trace-b"></span></div>
+          <div class="stage-hint"><span class="drag-icon">↔</span> DRAG TO ROTATE</div>
+          <div class="stage-corner stage-corner-bottom"><span>LATENCY: 0.04 ns</span><span>POWER: <b class="green">NOMINAL</b></span></div>
+        </div>
+      </section>
+
+      <section id="architecture" class="architecture section-shell section-space" aria-labelledby="architecture-title">
+        <div class="section-head"><p class="kicker">/ 01 — Die architecture <span>[U01]</span></p><h2 id="architecture-title">Every surface<br /><em>has a purpose.</em></h2><p class="section-note">The visible chip is a map: substrate, routing, pads, and package working together as one compact system.</p></div>
+        <div class="architecture-grid">
+          <article class="module-card module-large"><span class="module-number">01 / 04</span><div class="module-icon die-icon"><i></i><i></i><i></i><i></i><b>Si</b></div><h3>Silicon die</h3><p>The active layer. A programmable landscape of logic cells where signals become decisions.</p><div class="module-meta"><span>CORE LAYER</span><strong>ACTIVE</strong></div></article>
+          <article class="module-card"><span class="module-number">02 / 04</span><div class="module-icon trace-icon"><i></i><i></i><i></i><i></i></div><h3>Routing mesh</h3><p>Short paths, deliberate intersections, and a signal that never loses its way.</p><div class="module-meta"><span>TRACE DENSITY</span><strong>84%</strong></div></article>
+          <article class="module-card"><span class="module-number">03 / 04</span><div class="module-icon pad-icon"><i></i><i></i><i></i><i></i></div><h3>Bond pads</h3><p>The handoff between an internal world and the package that carries it.</p><div class="module-meta"><span>CONTACTS</span><strong>48</strong></div></article>
+          <article class="module-card module-accent"><span class="module-number">04 / 04</span><div class="module-icon signal-icon"><span>→</span></div><h3>Signal flow</h3><p>Energy moving through a designed system. Quiet when stable, visible when alive.</p><div class="module-meta"><span>STATUS</span><strong>STREAMING</strong></div></article>
+        </div>
+      </section>
+
+      <section id="signals" class="signals section-shell section-space" aria-labelledby="signals-title">
+        <div class="signal-panel">
+          <div class="signal-copy"><p class="kicker">/ 02 — Signal telemetry <span>[U02]</span></p><h2 id="signals-title">Quiet systems<br /><em>still move.</em></h2><p>Scroll energy and pointer movement feed a restrained visual telemetry layer. Nothing here is simulated for spectacle alone — every pulse is a reminder that invisible systems are always in motion.</p><button class="text-button" id="quality-toggle" type="button" aria-pressed="false">Force low-power mode <span>↗</span></button></div>
+          <div class="telemetry" aria-label="Decorative signal telemetry">
+            <div class="telemetry-top"><span>LIVE TRACE / A-17</span><span class="green"><i class="status-light"></i> NOMINAL</span></div>
+            <div class="waveform"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            <div class="telemetry-grid"><div><span>VOLTAGE</span><strong>0.82 <small>V</small></strong></div><div><span>FREQUENCY</span><strong>4.20 <small>GHz</small></strong></div><div><span>THERMAL</span><strong>31.8 <small>°C</small></strong></div><div><span>YIELD</span><strong>99.7 <small>%</small></strong></div></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="uplink section-shell section-space" aria-labelledby="uplink-title">
+        <div class="uplink-line"></div><div class="uplink-content"><div><p class="kicker">/ 03 — Establish uplink <span>[U03]</span></p><h2 id="uplink-title">Have a system<br /><em>worth building?</em></h2></div><div><p class="uplink-copy">This is a visual playground for the small details that make complex technology feel tangible.</p><a class="button button-primary" href="mailto:mugesh3112007@gmail.com">Open a channel <span>↗</span></a></div></div>
+      </section>
+    </main>
+
+    <footer class="site-footer section-shell"><span>© 2026 SILICON / 001</span><span>PROCEDURAL / NO ASSETS / ONE DIE</span><a href="#top">Back to top ↑</a></footer>
+    <noscript><div class="noscript">JavaScript is disabled. The chip study remains available as a static interface.</div></noscript>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
